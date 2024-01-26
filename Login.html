@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+         .btn-login{
+            padding: 10px 15px;
+            cursor: pointer;
+            color: white;
+            background-color: black;
+        }
+        .overlay{
+            background:rgba(0, 0, 0, 0.5);
+            width: 100%;
+            top: 0%;
+            height: 100vh;
+            z-index: -1;
+            position: fixed;
+            opacity: 0;
+            transition: 0s;
+        }
+        .loginform{
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: -50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0px 0px 10px 3px #ccc;
+            transition: 1s;
+            z-index: 9;
+        }
+        .loginform input{
+            width: 100%;
+            margin-bottom: 20px;
+            height: 35px;
+        }
+        .showloginform{
+            top:50%;
+        }
+        .showoverlay{
+            opacity: 1;
+            z-index: 1;
+        }
+        .loginform .a{
+            padding: 10px 15px;
+            cursor: pointer;
+            color: white;
+            background-color: black;
+            width: 300px;
+            height: 35px;
+            margin-bottom: 15px;
+        }
+        .loginform span{
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            color: white;
+            background-color: green;
+            text-align: center;
+            right: 0px;
+            top: 0px;
+            line-height: 30px;
+            cursor: pointer;
+        } 
+        #check{
+            height: 15px;
+            width: 15px;
+            padding: 20px;
+            margin-left: 5px;
+        }
+        .container{
+            background-color: #f1f1f1;
+            display: flex;
+            box-sizing: inherit;
+        }
+        .cancel-btn{
+            width: 50px;
+            cursor: pointer;
+            color: white;
+            background-color:#f44366;
+        }
+        .cancel-btn:hover{
+            background-color: green;
+        }
+        .psw{
+            font-size: 16px;
+            padding-top: 16px;
+            padding-left: 110px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+     <button class="btn-login">Login</button>
+    <div class="overlay"></div>
+    <div class="loginform">
+        <span>&times;</span>
+        <form action="">
+            <div>
+            <label for="">UserName</label>
+            <input type="text" >
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="password" >
+                </div>
+                <button class="a">Login</button>
+                <label for="">
+                <input type="checkbox" name="chek" id="check" >Remember me</label>
+            <div class="container">
+                <button class="cancel-btn" >Cancel</button>
+                <p class="psw">Forget <a href="#">Password</a></p>
+            </div>
+        </form>
+    </div> 
+    <script>
+        function showmodel(){
+            document.querySelector('.overlay').classList.add('showoverlay');
+            document.querySelector('.loginform').classList.add('showloginform')
+
+        }
+        function closemodel(){
+            document.querySelector('.overlay').classList.remove('showoverlay');
+            document.querySelector('.loginform').classList.remove('showloginform')
+
+        }
+        var btnlogin=document.querySelector('.btn-login');
+        btnlogin.addEventListener("click",showmodel);
+        var c=document.querySelector("span");
+        c.addEventListener("click",closemodel);
+        var d=document.querySelector('.cancel-btn')
+        d.addEventListener("click",closemodel);
+    </script>
+
+    
+</body>
+</html>
